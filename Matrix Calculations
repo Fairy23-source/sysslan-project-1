@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[3][3], b[3][3], sum[3][3], sub[3][3], mul[3][3] = {0};
+
+    cout << "Enter first matrix:\n";
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            cin >> a[i][j];
+
+    cout << "Enter second matrix:\n";
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            cin >> b[i][j];
+
+    // Addition & Subtraction
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) {
+            sum[i][j] = a[i][j] + b[i][j];
+            sub[i][j] = a[i][j] - b[i][j];
+        }
+    }
+
+    // Multiplication
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) {
+            for(int k=0;k<3;k++) {
+                mul[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    cout << "\nAddition:\n";
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) cout << sum[i][j] << " ";
+        cout << endl;
+    }
+
+    cout << "\nSubtraction:\n";
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) cout << sub[i][j] << " ";
+        cout << endl;
+    }
+
+    cout << "\nMultiplication:\n";
+    for(int i=0;i<3;i++) {
+        for(int j=0;j<3;j++) cout << mul[i][j] << " ";
+        cout << endl;
+    }
+
+    return 0;
+}
